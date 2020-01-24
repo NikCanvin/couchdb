@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: datastore
+  namespace: default
+spec:
+  path: /
+  to:
+    kind: Service
+    name: datastore
+  port:
+    targetPort: 5984-tcp

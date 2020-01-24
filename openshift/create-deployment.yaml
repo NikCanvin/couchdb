@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datastore
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: datastore
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: datastore
+    spec:
+      containers:
+        - name: datastore
+          image: nikcanvin/datastore
+          ports:
+            - containerPort: 5984
